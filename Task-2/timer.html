@@ -1,0 +1,63 @@
+<!---->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timer Task</title>
+	<!--Script have been included here-->
+	<link href="style.css" rel="stylesheet">
+	<script type="text/javascript" src="script.js"></script>
+
+</head>
+<body id='background' style='background-image: url("sad.png");'>
+	<div id="whole_container" style="position: relative;"><!--This contains the main container--->
+		<center><h1>Next Image will be triggered in T minus...</h1></center><br/>
+		<div id="display_time" ><!--Display Remaining time-->
+			<div id="days" class="display">
+			<div class="box">0</div>Days</div>
+
+			<div id="hours" class="display">
+			<div class="box">0</div>
+			Hours
+			</div>
+
+			<div id="minutes" class="display">
+			<div class="box">0</div>				
+			Minutes
+			</div>
+
+			<div id="seconds" class="display">
+			<div class="box">0</div>
+			Seconds
+			</div>
+		</div>
+		<br>
+
+		<!--Container has buttons-->
+		<div id="button_container">
+			<div id="start" class="button">
+				Start
+			</div>
+			<div id="stop" class="button">
+				Stop
+			</div>
+			<div id="reset" class="button">
+				Reset
+			</div>
+		</div>
+		<br>
+		<!--Timer Buttons ends Here-->
+
+		<!--input fields start here-->
+		<div id="input_field">
+			<label for="input_date">Enter Date :</label>
+			<input type="date" name="input_date" id="date"><br>
+			<label for="input_time">Enter Time :</label>
+			<input type="time" name="input_time" id="time"><br>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+<!---->
