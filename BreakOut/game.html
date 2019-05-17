@@ -1,0 +1,99 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Break out Game</title>
+  <style>
+  {padding:0;
+    margin:0;}  canvas{background:#eeeeee;display: block;margin: 0 auto; } </style>
+</head>
+
+
+<body>
+  <canvas id='Mycanvas' height="320" width="400"  ></canvas>
+
+    <script>
+
+    var canvas=document.getElementById("Mycanvas");
+    var ctx=canvas.getContext("2d");
+    var x=canvas.width/2;
+    var y=canvas.height-30;
+    var ball_radius=10;
+    var dx=2;
+    var dy=-2;
+
+    //declaring paddle details
+
+    var paddleHeight=10;
+    var paddleWidth=75;
+    var paddleX=(canvas.width-paddleWidth)/2;
+    var paddleY=canvas.height-paddleHeight;
+    
+
+    var rightkeyPressed=false;
+    var leftkeyPressed=false;
+    document.addEventListener("keydown",keyDownHandler,false);
+    document.addEventListener("keyup",keyUpHandler,false);
+
+    function keyDownHandler(e){
+      if(e.key=="Right" || e.key=="ArrowRight"){
+        rightkeyPressed=true;
+      }
+      if(e.key=="Left" || e.key=="ArrowLeft"){
+        leftkeyPressed=true;
+      }
+    }
+    function keyUpHandler(e){
+        if(e.key=="Right" || e.key=="ArrowRight"){
+        rightkeyPressed=false;
+      }
+      if(e.key=="Left" || e.key=="ArrowLeft"){
+        leftkeyPressed=false;
+      }
+    }
+
+    function drawPaddle(){
+      ctx.beginPath();
+      ctx.rect(paddleX,paddleY,paddleWidth,paddleHeight);
+      ctx.fillStyle="blue";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function drawBall(){
+    ctx.beginPath();
+    ctx.arc(x, y,ball_radius, 0, Math.PI*2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+
+
+}
+
+function draw(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    drawPaddle();
+    if(x+dx<ball_radius || x+dx>=canvas.width-ball_radius)
+      dx=-dx;
+    if(y+dy<ball_radius || y+dy>canvas.height-ball_radius)
+      dy=-dy;
+
+    if(paddleX<canvas.width-paddleWidth && rightkeyPressed)
+      paddleX+=7
+    if(paddleX>0 && leftkeyPressed)
+      { console.log("the leftkeyPressed");
+        paddleX-=7;}
+
+    x += dx;
+    y += dy;
+}
+
+
+    setInterval(draw,10);
+
+
+
+    </script>
+</body>
+
+</html>
