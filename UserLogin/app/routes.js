@@ -1,4 +1,4 @@
-module.export=function(app,passport){
+module.exports=function(app,passport){
 	app.get('/',function(req,res){
 		res.render('index.ejs');
 	});
@@ -8,7 +8,7 @@ module.export=function(app,passport){
 	});
 
 	app.post('/login',passport.authenticate('local-login',{
-		successRedirect:"/profile",
+		successRedirect:'/profile',
 		failureRedirect:'/login',
 		failureFlash:true
 	}),
@@ -24,12 +24,12 @@ module.export=function(app,passport){
 
 	app.get('/signup',function(req,res){
 
-		res.render('signup.ejs',{message:req.flash('signupMessage')}
+		res.render('signup.ejs',{message:req.flash('signupMessage')})
 	});
 
 	app.post('/signup',passport.authenticate('local-signup',{
-		successRedirect:'./profile',
-		failureRedirect:'./signup',
+		successRedirect:'/profile',
+		failureRedirect:'/signup',
 		failureFlash:true
 	}));
 

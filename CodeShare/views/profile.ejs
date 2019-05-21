@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+<div class="container">
+	<h1>Profile</h1>
+	<a href="/logout">Logout</a><br/>
+</div>
+<h3><span>
+		Welcome<%= user.username  %>
+	</span></h3>
+<br/>
+	<p>User id:<%= user.id%></p>
+<br/><br/>
+
+
+<form action='/entercode' method='post'>
+<input name="username" value="<%= user.username  %>"/>
+
+<input name="password" type="password" value="<%= user.password  %>"/>
+<textarea name="code" rows="20" column="500" placeholder="enter code here.." value="<%= user.code %>" ></textarea>
+<input type="submit" value="save" onclick="save()"></input>
+</form>
+
+
+</body>
+</html>

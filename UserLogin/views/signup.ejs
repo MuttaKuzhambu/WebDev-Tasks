@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content='ie=edge'>
+<title>Login Registration</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheer" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<style>
+html{
+	padding:50px;
+}
+</style>
+
+</head>
+
+<body>
+<div class="container">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h2> Resgister</h2>
+
+		<% if(message.length>0){%>
+		<div class="alert alert-danger"><%=message%></div>
+	< %}% >
+
+	<form action='/login' method="post">
+		<div class="form-group">
+			<label> Username</label>
+			<input type="text" name="username" class="form-control">
+	</div>
+		<div class="form-group">
+			<label> Password</label>
+			<input type="password" name="username" class="form-control">
+	</div>
+		<button type="submit" class="btn btn-success btn-lg">Register</button>
+</form>
+
+<hr>
+<p>Need an account <a href="/signup">Register</a></p>
+<p>Go back<a href="/">home</a>.</p>
+</div>
+</body>
+</html>

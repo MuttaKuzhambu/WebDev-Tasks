@@ -1,0 +1,9 @@
+module.exports={
+	'connection':{
+		'host':'localhost',
+		'user':'root',
+		'password':'123456'
+	},
+	'database':'code_share',
+	'user_table':'users'
+}
