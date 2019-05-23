@@ -7,12 +7,12 @@
 	$code="";
 	$errors=array();
 
-	$db =mysqli_connect('localhost','root','','code_share');
+	$db =mysqli_connect('localhost','root','','code_share') or die($db);
 
 	if(isset($_POST['register'])){
-		$username=mysql_real_escape_string($_POST['username']);
-		$password_1=mysql_real_escape_string($_POST['password_1']);
-		$password_2=mysql_real_escape_string($_POST['password_2']);
+		$username=mysqli_real_escape_string($db,$_POST['username']);
+		$password_1=mysqli_real_escape_string($db,$_POST['password_1']);
+		$password_2=mysqli_real_escape_string($db,$_POST['password_2']);
 
 		if(empty($username)){
 			array_push($errors,"Username is Required");
@@ -39,10 +39,10 @@
 	}
 	//login code
 	if(isset($_POST['login'])){
-		$username=mysql_real_escape_string($_POST['username']);
-		$password=mysql_real_escape_string($_POST['password']);
+		$username=mysqli_real_escape_string($db,$_POST['username']);
+		$password=mysqli_real_escape_string($db,$_POST['password']);
 
-		if(empty($username)){
+		if(empty($username)){	
 			array_push($errors,"Username is Required");
 		}
 		if(empty($password)){
@@ -75,13 +75,17 @@
 	}
 	//code saved
 	if(isset($_POST['save'])){
-		$username=mysql_real_escape_string($_SESSION['username']);
-		$code=mysql_real_escape_string($_POST['code']);
+		$username=mysqli_real_escape_string($db,$_SESSION['username']);
+		$code=mysqli_real_escape_string($db,$_POST['code']);
 
 		$query="UPDATE codebase SET code='$code' WHERE username='$username'";
-		mysqli_query($db,$query);
+
+		$q=mysqli_query($db,$query);
 			$_SESSION['code']=$code;
 
 		header('location:index.php');
 	}
+
+	//view codes
+	
 ?>

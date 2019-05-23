@@ -32,7 +32,8 @@
     	</div>
 
     	<p>
-    		Not a member?<a href="register.php">SignUp</a>
+    		Not a member?<a href="register.php">SignUp</a><br/>
+            See all codes?<a href="seeCodes.php">see</a>
     	</p>
 
 

@@ -33,17 +33,29 @@
         <p>WELCOME <strong><?php echo $_SESSION['username'];?></strong> </p>      
         <p><a href="index.php?logout='1'" style="color: red;">logout</a></p>
         <form action="index.php" method="post">
-            <textarea name="code" rows="30" cols="30" placeholder="enter code here" value="<?php
-            echo($_SESSION['code']);
-
-            ?>">
+            <textarea name="code" rows="30" cols="30" placeholder="enter code here" value="">
                 
                 <?php
-            echo($_SESSION['code']);
+            //$result=mysqli_query($db,"SELECT code FROM codebase WHERE username= ".addslashes($_SESSION['username']));
+                    $link =mysqli_connect('localhost','root','','code_share') or die($link);
 
+                        $result=mysqli_query($link,"SELECT code FROM codebase WHERE username='$username'") ;
+
+            if(!$result){
+                echo ("Could not run query");
+                exit;
+            }
+            else{
+                $row = mysqli_fetch_row($result);
+                echo $row[0];
+                echo "something printing huh?";
+            }
+
+                
             ?>
             </textarea>
             <button type="submit" name='save' value="save">save!</button>
+            
         </form>
 
     <?php endif ?>

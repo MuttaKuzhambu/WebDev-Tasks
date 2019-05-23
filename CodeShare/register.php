@@ -37,6 +37,7 @@
 
     	<p>
     		Already a member?<a href="login.php">SignIn</a>
+            See all codes?<a href="seeCodes.php">see</a>
     	</p>
 
 
