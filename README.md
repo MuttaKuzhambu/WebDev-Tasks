@@ -1,6 +1,8 @@
 # WebDev-Tasks
 
 For setting up Database
+    
+    
     create a database under the name 'code_share'
     under that create two tables with following name
       1.users with attributes id(int 111 primary key),username(varchar 256),password(varchar 256)
