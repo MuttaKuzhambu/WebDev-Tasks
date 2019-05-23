@@ -15,4 +15,12 @@ For setting up Database
       if you face any issues like : apacher server not running ,execute the following commands 
                                           1.sudo /etc/init.d/apache2 stop
                                           2. sudo /opt/lampp/lampp start
+
+
+      Commands for Creating databases and tables:
+
+        CREATE DATABASE code_share;
+        USE code_share;
+        CREATE TABLE users (id int 111 auto_increment PRIMARY KEY,username varchar (256),password varchar (256));
+        CREATE TABLE codebase (id int 111 auto_increment PRIMARY KEY,username varchar (256),code varchar (2000));
       
