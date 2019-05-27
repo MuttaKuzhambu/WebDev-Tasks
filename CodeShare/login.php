@@ -33,7 +33,7 @@
 
     	<p>
     		Not a member?<a href="register.php">SignUp</a><br/>
-            See all codes?<a href="seeCodes.php">see</a>
+            See all codes?<a href="seecodes.php">see</a>
     	</p>
 
 

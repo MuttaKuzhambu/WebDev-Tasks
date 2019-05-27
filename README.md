@@ -15,7 +15,16 @@ For setting up Database
       if you face any issues like : apacher server not running ,execute the following commands 
                                           1.sudo /etc/init.d/apache2 stop
                                           2. sudo /opt/lampp/lampp start
-
+        For SQL ERRORS:
+            1.sudo /etc/init.d/mysql stop
+            2.sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+            3.mysql -u root
+            4.FLUSH PRIVILEGES;
+            5. SET PASSWORD FOR root@'localhost' = PASSWORD('');
+            6.UPDATE mysql.user SET Password=PASSWORD('') WHERE User='root';
+            7.FLUSH PRIVILEGES;
+            8.sudo /etc/init.d/mysql stop
+            9.sudo /etc/init.d/mysql start
 
       Commands for Creating databases and tables:
 

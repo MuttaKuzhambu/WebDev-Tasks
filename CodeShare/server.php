@@ -86,6 +86,43 @@
 		header('location:index.php');
 	}
 
-	//view codes
+	//upload codes
+	// if(isset($_POST['upload'])){
+	// 	echo ("file successfully uploaded");
+	// 	echo "<p><a href='index.php'>back</a></p>";
+	// 	if(isset($_FILES["file_uploaded"])) {
+	// 		echo ("file successfully uploaded");
+	// 		$code = mysqli_real_escape_string(file_get_contents('file_uploaded', true));
+	// 				$username=mysqli_real_escape_string($db,$_SESSION['username']);
+	// 				$query="UPDATE codebase SET code='$code' WHERE username='$username'";
+
+	// 	$q=mysqli_query($db,$query);
+	// 	header('location:index.php');
+
+
+	// 	}
+	// }
 	
+	//upload codes
+	if($_SERVER["REQUEST_METHOD"]=="POST"){
+		echo "reached server here";
+	if(isset($_FILES['file_uploaded']) && $_FILES['file_uploaded']['error']==0){
+		echo "files uploaded";
+
+		$file_name     = $_FILES["file_uploaded"]["name"]; 
+        $file_type     = $_FILES["file_uploaded"]["type"]; 
+        $file_size     = $_FILES["file_uploaded"]["size"]; 
+        $file_tmp_name = $_FILES["file_uploaded"]["tmp_name"]; 
+        $file_error    = $_FILES["file_uploaded"]["error"]; 
+        $data = mysqli_real_escape_string($db,file_get_contents($file_tmp_name));
+
+        $username=mysqli_real_escape_string($db,$_SESSION['username']);
+        $query="UPDATE codebase SET code='$code' WHERE username='$username'";
+        mysqli_query($db,$query);
+        header('location:index.php');
+
+		echo "$data";
+	}
+}
+
 ?>
